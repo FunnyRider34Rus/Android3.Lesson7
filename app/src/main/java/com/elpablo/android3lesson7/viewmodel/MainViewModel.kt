@@ -21,7 +21,7 @@ class MainViewModel(
 
     var serverResponse by mutableStateOf<APODDTO?>(null)
 
-    fun sendServerRequest(){
+    fun sendServerRequest() : APODDTO? {
         val currentDate = Calendar.getInstance()
         val formatted = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         formatted.timeZone = TimeZone.getTimeZone("EST")
@@ -42,5 +42,6 @@ class MainViewModel(
                 }
             }
         )
+        return serverResponse
     }
 }

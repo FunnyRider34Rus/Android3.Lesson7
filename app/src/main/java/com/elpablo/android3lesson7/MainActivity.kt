@@ -10,7 +10,6 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.ViewModelProvider
 import coil.compose.AsyncImage
 import com.elpablo.android3lesson7.MainActivity.Companion.serverResponse
@@ -46,10 +45,10 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun ShowCard(response: MainViewModel) {
+fun ShowCard(response: APODDTO?) {
     Column {
-        AsyncImage(response.serverResponse?.hdurl, response.serverResponse?.title)
-        Text(text = response.serverResponse?.title.toString())
-        Text(text = response.serverResponse?.explanation.toString())
+        AsyncImage(response?.hdurl, response?.title)
+        Text(text = response?.title.toString())
+        Text(text = response?.explanation.toString())
     }
 }
