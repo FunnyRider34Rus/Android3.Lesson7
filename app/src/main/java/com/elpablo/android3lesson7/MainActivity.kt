@@ -5,14 +5,17 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModelProvider
 import coil.compose.AsyncImage
-import com.elpablo.android3lesson7.MainActivity.Companion.serverResponse
 import com.elpablo.android3lesson7.model.APODDTO
 import com.elpablo.android3lesson7.ui.theme.Android3Lesson7Theme
 import com.elpablo.android3lesson7.viewmodel.MainViewModel
@@ -20,7 +23,6 @@ import com.elpablo.android3lesson7.viewmodel.MainViewModel
 class MainActivity : ComponentActivity() {
 
     companion object {
-        lateinit var serverResponse : APODDTO
         private lateinit var viewModel: MainViewModel
     }
 
@@ -48,7 +50,10 @@ class MainActivity : ComponentActivity() {
 fun ShowCard(response: APODDTO?) {
     Column {
         AsyncImage(response?.hdurl, response?.title)
-        Text(text = response?.title.toString())
+        Text(text = response?.title.toString(),
+             style = MaterialTheme.typography.titleLarge,
+             modifier = Modifier.padding(16.dp).fillMaxWidth(),
+             textAlign = TextAlign.Center)
         Text(text = response?.explanation.toString())
     }
 }
