@@ -22,6 +22,7 @@ import androidx.lifecycle.ViewModelProvider
 import coil.compose.AsyncImage
 import com.elpablo.android3lesson7.model.APODDTO
 import com.elpablo.android3lesson7.ui.theme.Android3Lesson7Theme
+import com.elpablo.android3lesson7.ui.theme.QuickSand
 import com.elpablo.android3lesson7.viewmodel.MainViewModel
 
 class MainActivity : ComponentActivity() {
@@ -37,7 +38,6 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-
                     viewModel = ViewModelProvider(this)[MainViewModel::class.java]
                     val model = viewModel.sendServerRequest()
                     ShowCard(model)
@@ -53,7 +53,7 @@ fun ShowCard(response: APODDTO?) {
         AsyncImage(response?.hdurl, response?.title)
         Text(
             text = response?.title.toString(),
-            style = MaterialTheme.typography.titleLarge,
+            style = MaterialTheme.typography.bodyLarge,
             textAlign = TextAlign.Center,
             modifier = Modifier
                 .padding(16.dp)
@@ -69,14 +69,13 @@ fun ShowCard(response: APODDTO?) {
                         addStyle(
                             style = SpanStyle(
                                 color = androidx.compose.ui.graphics.Color.Red,
-                                fontSize = 34.sp,
-                                fontFamily = FontFamily.Cursive
+                                fontSize = 16.sp,
                             ),
                             start = index,
                             end = index+1
                         )
                     }
-            })
+            }, style = MaterialTheme.typography.bodySmall)
         }
     }
 }

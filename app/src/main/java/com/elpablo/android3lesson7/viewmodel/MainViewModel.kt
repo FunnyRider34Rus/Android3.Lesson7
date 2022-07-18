@@ -3,8 +3,6 @@ package com.elpablo.android3lesson7.viewmodel
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.elpablo.android3lesson7.BuildConfig
 import com.elpablo.android3lesson7.model.APODAPImpl
