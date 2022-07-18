@@ -32,7 +32,6 @@ class MainViewModel(
                     if (response.isSuccessful&&response.body()!=null){
                         response.body()?.let {
                             serverResponse = it
-
                         }
                     }
                 }
